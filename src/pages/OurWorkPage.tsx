@@ -78,30 +78,57 @@ const OurWorkPage = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Header */}
-      <header className="bg-gradient-hero py-16 px-4">
-        <div className="container mx-auto max-w-7xl">
-          <Link to="/">
-            <Button variant="ghost" className="mb-8 text-foreground hover:text-primary">
-              <ArrowLeft className="mr-2 w-4 h-4" />
-              Back to Home
-            </Button>
-          </Link>
+      <header className="bg-gradient-hero py-16 px-4 relative overflow-hidden">
+        {/* Animated background */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 left-20 w-72 h-72 bg-primary rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-10 right-20 w-96 h-96 bg-primary rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }} />
+        </div>
+
+        <div className="container mx-auto max-w-7xl relative z-10">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.4 }}
+          >
+            <Link to="/">
+              <Button variant="ghost" className="mb-8 text-foreground hover:text-primary hover:bg-primary/10 transition-all">
+                <ArrowLeft className="mr-2 w-4 h-4" />
+                Back to Home
+              </Button>
+            </Link>
+          </motion.div>
           
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             className="text-center space-y-4"
           >
-            <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full">
-              <Star className="w-5 h-5 text-primary" />
+            <motion.div
+              className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full hover:bg-primary/20 transition-colors"
+              whileHover={{ scale: 1.05 }}
+            >
+              <Star className="w-5 h-5 text-primary animate-pulse" />
               <span className="font-semibold text-primary">Case Studies</span>
-            </div>
-            <h1 className="text-5xl md:text-6xl font-bold">Our Work</h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            </motion.div>
+            <motion.h1
+              className="text-5xl md:text-6xl font-bold"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              Our Work
+            </motion.h1>
+            <motion.p
+              className="text-xl text-muted-foreground max-w-3xl mx-auto"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
               Explore how Esenyx is transforming event management across India — 
               from expos to corporate summits.
-            </p>
+            </motion.p>
           </motion.div>
         </div>
       </header>
@@ -122,33 +149,68 @@ const OurWorkPage = () => {
             >
               {/* Timeline Line */}
               {index < caseStudies.length - 1 && (
-                <div className="absolute left-8 top-20 bottom-0 w-0.5 bg-gradient-primary opacity-30 hidden md:block" />
+                <motion.div
+                  className="absolute left-8 top-20 bottom-0 w-0.5 bg-gradient-primary opacity-30 hidden md:block"
+                  initial={{ scaleY: 0 }}
+                  whileInView={{ scaleY: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.5 }}
+                  style={{ transformOrigin: "top" }}
+                />
               )}
 
               <div className="grid md:grid-cols-[auto,1fr] gap-8">
                 {/* Year Badge */}
-                <div className="flex-shrink-0">
-                  <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center shadow-lg">
+                <motion.div
+                  className="flex-shrink-0"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center shadow-lg hover:shadow-2xl hover:shadow-primary/30 transition-shadow">
                     <span className="text-2xl font-bold text-white">{study.year.slice(2)}</span>
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Content Card */}
-                <div className="bg-card rounded-2xl shadow-lg border border-border overflow-hidden">
+                <motion.div
+                  className="bg-card rounded-2xl shadow-lg border border-border overflow-hidden hover:shadow-2xl hover:border-primary/20 transition-all duration-300"
+                  whileHover={{ y: -5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
                   {/* Header */}
-                  <div className="bg-gradient-dark p-8 text-secondary-foreground">
-                    <h2 className="text-3xl font-bold mb-4">{study.name}</h2>
-                    <div className="flex flex-wrap gap-4 text-sm text-secondary-foreground/80">
-                      <div className="flex items-center gap-2">
+                  <motion.div
+                    className="bg-gradient-dark p-8 text-secondary-foreground"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <motion.h2
+                      className="text-3xl font-bold mb-4"
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: 0.1 }}
+                    >
+                      {study.name}
+                    </motion.h2>
+                    <motion.div
+                      className="flex flex-wrap gap-4 text-sm text-secondary-foreground/80"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: 0.2 }}
+                    >
+                      <div className="flex items-center gap-2 hover:text-primary transition-colors">
                         <Calendar className="w-4 h-4" />
                         <span>{study.date}</span>
                       </div>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 hover:text-primary transition-colors">
                         <MapPin className="w-4 h-4" />
                         <span>{study.location}</span>
                       </div>
-                    </div>
-                  </div>
+                    </motion.div>
+                  </motion.div>
 
                   {/* Body */}
                   <div className="p-8 space-y-8">
@@ -168,54 +230,105 @@ const OurWorkPage = () => {
                     </div>
 
                     {/* Results Grid */}
-                    <div>
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5 }}
+                    >
                       <h3 className="text-xl font-bold mb-4">Key Results</h3>
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                         {study.results.map((result, idx) => (
-                          <div
+                          <motion.div
                             key={idx}
-                            className="p-4 bg-muted rounded-lg text-center space-y-2"
+                            className="p-4 bg-muted rounded-lg text-center space-y-2 hover:bg-primary/10 hover:shadow-lg transition-all duration-300 cursor-pointer group"
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.4, delay: idx * 0.1 }}
+                            whileHover={{ scale: 1.05, y: -5 }}
                           >
-                            <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mx-auto">
+                            <motion.div
+                              className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mx-auto group-hover:bg-primary/30 transition-colors"
+                              whileHover={{ rotate: 360 }}
+                              transition={{ duration: 0.6 }}
+                            >
                               <result.icon className="w-5 h-5 text-primary" />
-                            </div>
+                            </motion.div>
                             <div className="text-2xl font-bold">{result.value}</div>
-                            <div className="text-xs text-muted-foreground">{result.label}</div>
-                          </div>
+                            <div className="text-xs text-muted-foreground group-hover:text-foreground transition-colors">{result.label}</div>
+                          </motion.div>
                         ))}
                       </div>
-                    </div>
+                    </motion.div>
 
                     {/* Highlights */}
                     {study.highlights && (
-                      <div>
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                      >
                         <h3 className="text-xl font-bold mb-4">Key Highlights</h3>
                         <ul className="space-y-3">
                           {study.highlights.map((highlight, idx) => (
-                            <li key={idx} className="flex items-start gap-3">
-                              <Award className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
-                              <span className="text-muted-foreground">{highlight}</span>
-                            </li>
+                            <motion.li
+                              key={idx}
+                              className="flex items-start gap-3 p-3 rounded-lg hover:bg-muted/50 transition-colors group"
+                              initial={{ opacity: 0, x: -20 }}
+                              whileInView={{ opacity: 1, x: 0 }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.4, delay: idx * 0.1 }}
+                              whileHover={{ x: 5 }}
+                            >
+                              <motion.div
+                                whileHover={{ scale: 1.2, rotate: 20 }}
+                                transition={{ type: "spring", stiffness: 300 }}
+                              >
+                                <Award className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+                              </motion.div>
+                              <span className="text-muted-foreground group-hover:text-foreground transition-colors">{highlight}</span>
+                            </motion.li>
                           ))}
                         </ul>
-                      </div>
+                      </motion.div>
                     )}
 
                     {/* Testimonial */}
                     {study.testimonial && (
-                      <div className="bg-gradient-dark p-6 rounded-xl">
+                      <motion.div
+                        className="bg-gradient-dark p-6 rounded-xl hover:shadow-xl transition-shadow"
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.3 }}
+                        whileHover={{ scale: 1.02 }}
+                      >
                         <blockquote className="space-y-4">
-                          <p className="text-lg text-secondary-foreground italic">
+                          <motion.p
+                            className="text-lg text-secondary-foreground italic"
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: 0.4 }}
+                          >
                             "{study.testimonial.quote}"
-                          </p>
-                          <footer className="text-primary font-semibold">
+                          </motion.p>
+                          <motion.footer
+                            className="text-primary font-semibold"
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: 0.5 }}
+                          >
                             — {study.testimonial.author}
-                          </footer>
+                          </motion.footer>
                         </blockquote>
-                      </div>
+                      </motion.div>
                     )}
                   </div>
-                </div>
+                </motion.div>
               </div>
             </motion.article>
           ))}
@@ -224,28 +337,54 @@ const OurWorkPage = () => {
         {/* CTA Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.6 }}
-          className="container mx-auto max-w-4xl mt-20 text-center space-y-6"
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="container mx-auto max-w-4xl mt-20 p-8 md:p-12 bg-gradient-dark rounded-3xl shadow-2xl text-center space-y-6 relative overflow-hidden"
         >
-          <h2 className="text-3xl md:text-4xl font-bold">
+          {/* Animated background glow */}
+          <div className="absolute inset-0 bg-gradient-primary opacity-5 blur-3xl" />
+          
+          <motion.h2
+            className="text-3xl md:text-4xl font-bold text-secondary-foreground relative z-10"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             Ready to Transform Your Next Event?
-          </h2>
-          <p className="text-lg text-muted-foreground">
+          </motion.h2>
+          <motion.p
+            className="text-lg text-secondary-foreground/80 relative z-10"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
             Join the growing number of organizers who trust Esenyx for seamless event management.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+          </motion.p>
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4 justify-center pt-4 relative z-10"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
             <Link to="/#contact">
-              <Button variant="hero" size="lg" className="text-lg px-8 py-6 h-auto">
-                Book a Demo
-              </Button>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button variant="hero" size="lg" className="text-lg px-8 py-6 h-auto shadow-lg hover:shadow-primary/30">
+                  Book a Demo
+                </Button>
+              </motion.div>
             </Link>
             <Link to="/">
-              <Button variant="cta" size="lg" className="text-lg px-8 py-6 h-auto">
-                Explore Features
-              </Button>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button variant="cta" size="lg" className="text-lg px-8 py-6 h-auto shadow-lg">
+                  Explore Features
+                </Button>
+              </motion.div>
             </Link>
-          </div>
+          </motion.div>
         </motion.div>
       </main>
 
