@@ -45,7 +45,7 @@ const Preloader = () => {
                 transition={{
                   duration: 2,
                   repeat: Infinity,
-                  ease: "easeInOut",
+                  ease: 'easeInOut',
                 }}
               />
             </motion.div>
@@ -58,19 +58,10 @@ const Preloader = () => {
               className="text-center space-y-2"
             >
               <h2 className="text-2xl font-bold text-foreground">Esenyx</h2>
-              <p className="text-sm text-muted-foreground">Loading your experience...</p>
+              <p className="text-sm text-muted-foreground">powered by EllowDigital</p>
             </motion.div>
 
-            {/* Spinner */}
-            <motion.div
-              className="w-12 h-12 border-4 border-primary/30 border-t-primary rounded-full"
-              animate={{ rotate: 360 }}
-              transition={{
-                duration: 1,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-            />
+            {/* Spinner removed as requested */}
           </div>
         </motion.div>
       )}

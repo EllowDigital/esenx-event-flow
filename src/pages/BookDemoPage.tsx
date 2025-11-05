@@ -15,11 +15,7 @@ const BookDemoPage = () => {
       <div className="min-h-screen bg-gradient-hero">
         {/* Header */}
         <header className="container mx-auto px-4 py-6">
-          <Button
-            variant="ghost"
-            onClick={() => navigate('/')}
-            className="group"
-          >
+          <Button variant="ghost" onClick={() => navigate('/')} className="group">
             <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
             Back to Home
           </Button>
@@ -38,7 +34,8 @@ const BookDemoPage = () => {
                 Book Your <span className="text-primary">Free Demo</span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-                See Esenyx in action. Schedule a personalized demo with our team and discover how we can transform your event management.
+                See Esenyx in action. Schedule a personalized demo with our team and discover how we
+                can transform your event management.
               </p>
             </motion.div>
 
@@ -60,7 +57,11 @@ const BookDemoPage = () => {
                 <input type="hidden" name="_subject" value="New Demo Request - Esenyx" />
                 <input type="hidden" name="_captcha" value="false" />
                 <input type="hidden" name="_template" value="table" />
-                <input type="hidden" name="_next" value={`${window.location.origin}/book-demo?success=true`} />
+                <input
+                  type="hidden"
+                  name="_next"
+                  value={`${window.location.origin}/book-demo?success=true`}
+                />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* Full Name */}
@@ -117,7 +118,10 @@ const BookDemoPage = () => {
 
                   {/* Organization */}
                   <div className="space-y-2">
-                    <label htmlFor="organization" className="flex items-center gap-2 text-sm font-medium">
+                    <label
+                      htmlFor="organization"
+                      className="flex items-center gap-2 text-sm font-medium"
+                    >
                       <Building className="w-4 h-4 text-primary" />
                       Organization *
                     </label>
@@ -134,7 +138,10 @@ const BookDemoPage = () => {
 
                   {/* Event Type */}
                   <div className="space-y-2">
-                    <label htmlFor="eventType" className="flex items-center gap-2 text-sm font-medium">
+                    <label
+                      htmlFor="eventType"
+                      className="flex items-center gap-2 text-sm font-medium"
+                    >
                       <Calendar className="w-4 h-4 text-primary" />
                       Event Type *
                     </label>
@@ -156,7 +163,10 @@ const BookDemoPage = () => {
 
                   {/* Expected Attendees */}
                   <div className="space-y-2">
-                    <label htmlFor="attendees" className="flex items-center gap-2 text-sm font-medium">
+                    <label
+                      htmlFor="attendees"
+                      className="flex items-center gap-2 text-sm font-medium"
+                    >
                       <Users className="w-4 h-4 text-primary" />
                       Expected Attendees *
                     </label>
@@ -192,10 +202,7 @@ const BookDemoPage = () => {
                 </div>
 
                 {/* Submit Button */}
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
+                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                   <Button
                     type="submit"
                     size="lg"

@@ -106,7 +106,7 @@ const Footer = () => {
             <h3 className="font-semibold text-lg text-secondary-foreground">Connect With Us</h3>
             <div className="flex gap-3">
               <a
-                href="https://www.instagram.com/ellwodigital"
+                href="https://www.instagram.com/ellowdigital"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-11 h-11 bg-secondary-foreground/10 rounded-lg flex items-center justify-center hover:bg-primary hover:scale-110 transition-all duration-300 group"
@@ -132,7 +132,10 @@ const Footer = () => {
                 </a>
               </p>
               <p className="text-secondary-foreground/70">
-                <a href="tel:+918960446756" className="hover:text-primary transition-colors duration-300">
+                <a
+                  href="tel:+918960446756"
+                  className="hover:text-primary transition-colors duration-300"
+                >
                   +91 8960446756
                 </a>
               </p>

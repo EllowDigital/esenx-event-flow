@@ -67,8 +67,14 @@
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
+/* Always animate heart by default; allow users who prefer reduced motion to disable it */
+.heart.blink {
+  animation: heart-beat 1s infinite;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
   .heart.blink {
-    animation: heart-beat 1s infinite;
+    animation: none !important;
   }
 }

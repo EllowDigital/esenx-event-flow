@@ -89,7 +89,11 @@ const Contact = () => {
                 <input type="hidden" name="_subject" value="New Contact Form Submission - Esenyx" />
                 <input type="hidden" name="_captcha" value="false" />
                 <input type="hidden" name="_template" value="table" />
-                <input type="hidden" name="_next" value={`${window.location.origin}/?success=true#contact`} />
+                <input
+                  type="hidden"
+                  name="_next"
+                  value={`${window.location.origin}/?success=true#contact`}
+                />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
@@ -168,10 +172,7 @@ const Contact = () => {
                   />
                 </div>
 
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
+                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                   <Button type="submit" variant="hero" size="lg" className="w-full">
                     Send Message
                   </Button>
