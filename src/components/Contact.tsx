@@ -1,36 +1,11 @@
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
-import { Label } from '@/components/ui/label'
-import { Mail, Phone, MapPin } from 'lucide-react'
 import { useState } from 'react'
-import { toast } from 'sonner'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Mail, Phone, MapPin } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import FormSuccess from './FormSuccess'
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    organization: '',
-    eventType: '',
-    message: '',
-  })
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Form submission logic would go here
-    toast.success("Thank you! We'll get back to you soon.")
-    setFormData({
-      name: '',
-      email: '',
-      organization: '',
-      eventType: '',
-      message: '',
-    })
-  }
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
-  }
+  const [showSuccess, setShowSuccess] = useState(false)
 
   return (
     <section className="py-24 px-4 bg-muted/30" id="contact">
@@ -103,81 +78,114 @@ const Contact = () => {
             {/* Contact Form */}
             <div className="lg:col-span-2 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
               <form
-                onSubmit={handleSubmit}
+                action="https://formsubmit.co/ellowdigitalindia@gmail.com"
+                method="POST"
+                onSubmit={() => {
+                  setTimeout(() => setShowSuccess(true), 100)
+                }}
                 className="space-y-6 p-8 bg-card rounded-2xl shadow-lg border border-border"
               >
+                {/* FormSubmit Configuration */}
+                <input type="hidden" name="_subject" value="New Contact Form Submission - Esenyx" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="_next" value={`${window.location.origin}/?success=true#contact`} />
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <Label htmlFor="name">Full Name *</Label>
-                    <Input
+                    <label htmlFor="name" className="text-sm font-medium">
+                      Full Name *
+                    </label>
+                    <input
                       id="name"
                       name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="John Doe"
+                      type="text"
                       required
+                      maxLength={100}
+                      className="w-full px-4 py-3 bg-background border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                      placeholder="John Doe"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="email">Email Address *</Label>
-                    <Input
+                    <label htmlFor="email" className="text-sm font-medium">
+                      Email Address *
+                    </label>
+                    <input
                       id="email"
                       name="email"
                       type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="john@example.com"
                       required
+                      maxLength={255}
+                      className="w-full px-4 py-3 bg-background border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                      placeholder="john@example.com"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <Label htmlFor="organization">Organization</Label>
-                    <Input
+                    <label htmlFor="organization" className="text-sm font-medium">
+                      Organization
+                    </label>
+                    <input
                       id="organization"
                       name="organization"
-                      value={formData.organization}
-                      onChange={handleChange}
+                      type="text"
+                      maxLength={150}
+                      className="w-full px-4 py-3 bg-background border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-all"
                       placeholder="Your Company Name"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="eventType">Event Type</Label>
-                    <Input
+                    <label htmlFor="eventType" className="text-sm font-medium">
+                      Event Type
+                    </label>
+                    <input
                       id="eventType"
-                      name="eventType"
-                      value={formData.eventType}
-                      onChange={handleChange}
+                      name="event_type"
+                      type="text"
+                      maxLength={100}
+                      className="w-full px-4 py-3 bg-background border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-all"
                       placeholder="Conference, Expo, etc."
                     />
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="message">Message *</Label>
-                  <Textarea
+                  <label htmlFor="message" className="text-sm font-medium">
+                    Message *
+                  </label>
+                  <textarea
                     id="message"
                     name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Tell us about your event requirements..."
-                    rows={6}
                     required
+                    maxLength={1000}
+                    rows={6}
+                    className="w-full px-4 py-3 bg-background border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-all resize-none"
+                    placeholder="Tell us about your event requirements..."
                   />
                 </div>
 
-                <Button type="submit" variant="hero" size="lg" className="w-full">
-                  Send Message
-                </Button>
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <Button type="submit" variant="hero" size="lg" className="w-full">
+                    Send Message
+                  </Button>
+                </motion.div>
               </form>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Success Animation */}
+      <AnimatePresence>
+        {showSuccess && <FormSuccess onClose={() => setShowSuccess(false)} />}
+      </AnimatePresence>
     </section>
   )
 }

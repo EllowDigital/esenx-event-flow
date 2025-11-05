@@ -9,6 +9,7 @@ import Preloader from './components/Preloader'
 // Lazy load pages for better performance
 const Index = lazy(() => import('./pages/Index'))
 const OurWorkPage = lazy(() => import('./pages/OurWorkPage'))
+const BookDemoPage = lazy(() => import('./pages/BookDemoPage'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 
 const queryClient = new QueryClient()
@@ -24,6 +25,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/our-work" element={<OurWorkPage />} />
+            <Route path="/book-demo" element={<BookDemoPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
