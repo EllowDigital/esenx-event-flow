@@ -13,6 +13,7 @@ const Hero = () => {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
+        role="presentation"
       />
 
       {/* Content */}

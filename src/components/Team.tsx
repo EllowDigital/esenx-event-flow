@@ -26,6 +26,7 @@ const Team = () => {
                   src={teamImage}
                   alt="EllowDigital Event Support Team"
                   className="w-full h-auto"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent pointer-events-none" />
               </div>

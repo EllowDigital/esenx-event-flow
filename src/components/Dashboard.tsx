@@ -24,6 +24,7 @@ const Dashboard = () => {
                 src={dashboardImage}
                 alt="Esenyx Dashboard Interface"
                 className="w-full h-auto"
+                loading="lazy"
               />
               {/* Overlay Gradient */}
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent pointer-events-none" />

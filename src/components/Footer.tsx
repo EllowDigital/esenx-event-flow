@@ -17,20 +17,21 @@ const Footer = () => {
               />
               <span className="text-2xl font-bold">Esenyx</span>
             </div>
-            {/* EllowDigital logo (small, inline with 'by') */}
-            <div className="flex items-center gap-2">
-              <img
-                src="https://ellowdigital.netlify.app/favicon.ico"
-                alt="EllowDigital logo"
-                className="w-6 h-6 rounded-sm"
-              />
+            {/* EllowDigital attribution */}
+            <div className="flex items-center gap-2 text-secondary-foreground/80 text-sm">
+              <span>by</span>
               <a
                 href="https://ellowdigital.netlify.app"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-secondary-foreground/80 text-sm hover:text-primary transition-colors"
+                className="flex items-center gap-2 hover:text-primary transition-colors group"
               >
-                by EllowDigital
+                <img
+                  src="https://ellowdigital.netlify.app/favicon.ico"
+                  alt="EllowDigital"
+                  className="w-5 h-5 rounded-sm group-hover:scale-110 transition-transform"
+                />
+                <span className="font-medium">EllowDigital</span>
               </a>
             </div>
             <p className="text-secondary-foreground/60 text-sm leading-relaxed">
