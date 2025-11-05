@@ -9,8 +9,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <QrCode className="w-8 h-8 text-primary" />
+            <div className="flex items-center gap-3">
+              <img
+                src="/assets/images/logo.png"
+                alt="Esenyx logo"
+                className="w-12 h-12 object-contain"
+              />
               <span className="text-2xl font-bold">Esenyx</span>
             </div>
             {/* EllowDigital logo (small, inline with 'by') */}
@@ -18,56 +22,56 @@ const Footer = () => {
               <img
                 src="https://ellowdigital.netlify.app/favicon.ico"
                 alt="EllowDigital logo"
-                className="w-8 h-8 rounded-sm"
+                className="w-6 h-6 rounded-sm"
               />
               <a
                 href="https://ellowdigital.netlify.app"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="text-secondary-foreground/80 text-sm hover:text-primary transition-colors"
               >
                 by EllowDigital
               </a>
             </div>
-            <p className="text-secondary-foreground/60 text-sm">
+            <p className="text-secondary-foreground/60 text-sm leading-relaxed">
               Simplify Events. Empower Experiences.
             </p>
           </div>
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-lg">Quick Links</h3>
-            <ul className="space-y-2 text-sm">
+            <h3 className="font-semibold text-lg text-secondary-foreground">Quick Links</h3>
+            <ul className="space-y-3 text-sm">
               <li>
                 <a
-                  href="#"
-                  className="text-secondary-foreground/80 hover:text-primary transition-colors"
+                  href="/"
+                  className="text-secondary-foreground/70 hover:text-primary transition-all duration-300 hover:translate-x-1 inline-block"
                 >
                   Home
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
-                  className="text-secondary-foreground/80 hover:text-primary transition-colors"
+                  href="/#about"
+                  className="text-secondary-foreground/70 hover:text-primary transition-all duration-300 hover:translate-x-1 inline-block"
                 >
                   About
                 </a>
               </li>
               <li>
                 <a
-                  href="#contact"
-                  className="text-secondary-foreground/80 hover:text-primary transition-colors"
+                  href="/our-work"
+                  className="text-secondary-foreground/70 hover:text-primary transition-all duration-300 hover:translate-x-1 inline-block"
                 >
-                  Contact
+                  Our Work
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
-                  className="text-secondary-foreground/80 hover:text-primary transition-colors"
+                  href="/#contact"
+                  className="text-secondary-foreground/70 hover:text-primary transition-all duration-300 hover:translate-x-1 inline-block"
                 >
-                  Privacy Policy
+                  Contact
                 </a>
               </li>
             </ul>
@@ -75,56 +79,68 @@ const Footer = () => {
 
           {/* Services */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-lg">Services</h3>
-            <ul className="space-y-2 text-sm">
-              <li className="text-secondary-foreground/80">Event Registration</li>
-              <li className="text-secondary-foreground/80">QR Pass Generation</li>
-              <li className="text-secondary-foreground/80">Entry Management</li>
-              <li className="text-secondary-foreground/80">Analytics & Reporting</li>
+            <h3 className="font-semibold text-lg text-secondary-foreground">Services</h3>
+            <ul className="space-y-3 text-sm">
+              <li className="text-secondary-foreground/70 flex items-start gap-2">
+                <span className="text-primary mt-0.5">•</span>
+                <span>Event Registration</span>
+              </li>
+              <li className="text-secondary-foreground/70 flex items-start gap-2">
+                <span className="text-primary mt-0.5">•</span>
+                <span>QR Pass Generation</span>
+              </li>
+              <li className="text-secondary-foreground/70 flex items-start gap-2">
+                <span className="text-primary mt-0.5">•</span>
+                <span>Entry Management</span>
+              </li>
+              <li className="text-secondary-foreground/70 flex items-start gap-2">
+                <span className="text-primary mt-0.5">•</span>
+                <span>Analytics & Reporting</span>
+              </li>
             </ul>
           </div>
 
           {/* Social & Contact */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-lg">Connect With Us</h3>
-            <div className="flex gap-4">
+            <h3 className="font-semibold text-lg text-secondary-foreground">Connect With Us</h3>
+            <div className="flex gap-3">
               <a
                 href="https://www.instagram.com/ellwodigital"
                 target="_blank"
-                rel="noreferrer"
-                className="w-10 h-10 bg-secondary-foreground/10 rounded-lg flex items-center justify-center hover:bg-primary/20 transition-colors"
+                rel="noopener noreferrer"
+                className="w-11 h-11 bg-secondary-foreground/10 rounded-lg flex items-center justify-center hover:bg-primary hover:scale-110 transition-all duration-300 group"
                 aria-label="Instagram"
               >
-                <Instagram className="w-5 h-5" />
+                <Instagram className="w-5 h-5 group-hover:text-primary-foreground transition-colors" />
               </a>
               <a
                 href="mailto:ellowdigitalindia@gmail.com"
-                className="w-10 h-10 bg-secondary-foreground/10 rounded-lg flex items-center justify-center hover:bg-primary/20 transition-colors"
+                className="w-11 h-11 bg-secondary-foreground/10 rounded-lg flex items-center justify-center hover:bg-primary hover:scale-110 transition-all duration-300 group"
                 aria-label="Email"
               >
-                <Mail className="w-5 h-5" />
+                <Mail className="w-5 h-5 group-hover:text-primary-foreground transition-colors" />
               </a>
             </div>
-            <div className="mt-4 space-y-1 text-sm text-secondary-foreground/60">
-              <p>
+            <div className="mt-6 space-y-2 text-sm">
+              <p className="text-secondary-foreground/70">
                 <a
                   href="mailto:ellowdigitalindia@gmail.com"
-                  className="hover:text-primary transition-colors"
+                  className="hover:text-primary transition-colors duration-300"
                 >
                   ellowdigitalindia@gmail.com
                 </a>
               </p>
-              <p>
-                <a href="tel:+918960446756" className="hover:text-primary transition-colors">
+              <p className="text-secondary-foreground/70">
+                <a href="tel:+918960446756" className="hover:text-primary transition-colors duration-300">
                   +91 8960446756
                 </a>
               </p>
-              <p>
+              <p className="text-secondary-foreground/70">
                 <a
                   href="https://ellowdigital.netlify.app"
                   target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-primary transition-colors"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors duration-300"
                 >
                   ellowdigital.netlify.app
                 </a>
@@ -134,18 +150,18 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-secondary-foreground/20 pt-8 text-center text-sm text-secondary-foreground/60 space-y-2">
-          <div className="flex items-center justify-center gap-3">
-            <span>© {currentYear} EllowDigital. All rights reserved.</span>
-          </div>
-          <div>
-            <p className="text-sm text-secondary-foreground/60">
-              Made with{' '}
-              <span className="heart blink" aria-hidden>
+        <div className="border-t border-secondary-foreground/10 pt-8 mt-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-secondary-foreground/60">
+            <div className="flex items-center gap-2">
+              <span>© {currentYear} EllowDigital. All rights reserved.</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span>Made with</span>
+              <span className="heart blink text-primary" aria-hidden>
                 ❤
-              </span>{' '}
-              EllowDigital
-            </p>
+              </span>
+              <span>by EllowDigital</span>
+            </div>
           </div>
         </div>
       </div>
