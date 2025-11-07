@@ -34,21 +34,16 @@ const CTASection = () => {
           </motion.div>
 
           <h2 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            Ready to Transform Your{' '}
-            <span className="text-primary">Event Experience?</span>
+            Ready to Transform Your <span className="text-primary">Event Experience?</span>
           </h2>
 
           <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
-            Join hundreds of event organizers who trust Esenyx to deliver
-            seamless, professional events. Start managing your events smarter,
-            not harder.
+            Join hundreds of event organizers who trust Esenyx to deliver seamless, professional
+            events. Start managing your events smarter, not harder.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
                 size="lg"
                 className="text-lg px-8 py-6 bg-primary hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all duration-300"
@@ -59,10 +54,7 @@ const CTASection = () => {
               </Button>
             </motion.div>
 
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
                 size="lg"
                 variant="outline"

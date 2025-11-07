@@ -29,7 +29,7 @@ const Navigation = () => {
 
   const handleNavClick = (href: string) => {
     setIsMobileMenuOpen(false)
-    
+
     if (href.startsWith('/#')) {
       const id = href.substring(2)
       const element = document.getElementById(id)
@@ -70,9 +70,7 @@ const Navigation = () => {
                 alt="Esenyx"
                 className="w-10 h-10 object-contain group-hover:scale-110 transition-transform"
               />
-              <span className="text-xl md:text-2xl font-bold text-foreground">
-                Esenyx
-              </span>
+              <span className="text-xl md:text-2xl font-bold text-foreground">Esenyx</span>
             </motion.a>
 
             {/* Desktop Navigation */}
@@ -108,11 +106,7 @@ const Navigation = () => {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle menu"
             >
-              {isMobileMenuOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>

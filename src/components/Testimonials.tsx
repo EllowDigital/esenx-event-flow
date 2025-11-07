@@ -76,19 +76,14 @@ const Testimonials = () => {
               <Card className="h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-card border-border/50">
                 <CardContent className="p-6 space-y-4">
                   <Quote className="w-10 h-10 text-primary/20" />
-                  
+
                   <div className="flex gap-1">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="w-5 h-5 fill-primary text-primary"
-                      />
+                      <Star key={i} className="w-5 h-5 fill-primary text-primary" />
                     ))}
                   </div>
 
-                  <p className="text-muted-foreground leading-relaxed">
-                    "{testimonial.text}"
-                  </p>
+                  <p className="text-muted-foreground leading-relaxed">"{testimonial.text}"</p>
 
                   <div className="flex items-center gap-4 pt-4 border-t border-border/50">
                     <img
@@ -98,12 +93,8 @@ const Testimonials = () => {
                       loading="lazy"
                     />
                     <div>
-                      <h4 className="font-semibold text-foreground">
-                        {testimonial.name}
-                      </h4>
-                      <p className="text-sm text-muted-foreground">
-                        {testimonial.role}
-                      </p>
+                      <h4 className="font-semibold text-foreground">{testimonial.name}</h4>
+                      <p className="text-sm text-muted-foreground">{testimonial.role}</p>
                     </div>
                   </div>
                 </CardContent>

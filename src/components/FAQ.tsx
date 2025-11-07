@@ -106,9 +106,7 @@ const FAQ = () => {
                   className="border border-border/50 rounded-lg px-6 hover:border-primary/50 transition-all duration-300 bg-card/30 backdrop-blur-sm"
                 >
                   <AccordionTrigger className="text-left hover:no-underline py-6">
-                    <span className="font-semibold text-foreground pr-4">
-                      {faq.question}
-                    </span>
+                    <span className="font-semibold text-foreground pr-4">{faq.question}</span>
                   </AccordionTrigger>
                   <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
                     {faq.answer}
@@ -127,10 +125,7 @@ const FAQ = () => {
           className="text-center mt-12"
         >
           <p className="text-muted-foreground mb-4">Still have questions?</p>
-          <a
-            href="/#contact"
-            className="text-primary hover:underline font-medium"
-          >
+          <a href="/#contact" className="text-primary hover:underline font-medium">
             Contact our support team →
           </a>
         </motion.div>
