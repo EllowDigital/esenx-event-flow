@@ -52,7 +52,7 @@ const itemVariants = {
 
 const HowItWorks = () => {
   return (
-    <section className="relative py-24 px-4 bg-background overflow-hidden">
+    <section id="how-it-works" className="relative py-24 px-4 bg-background overflow-hidden">
       {/* Background Animation */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-pulse" />
