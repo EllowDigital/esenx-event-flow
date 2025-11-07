@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import logo from '@/assets/images/logo.png'
 
 const Preloader = () => {
   const [loading, setLoading] = useState(true)
@@ -32,7 +31,7 @@ const Preloader = () => {
               className="relative"
             >
               <img
-                src={logo}
+                src="/assets/images/logo.png"
                 alt="Esenyx logo"
                 className="w-32 h-32 object-contain"
               />
