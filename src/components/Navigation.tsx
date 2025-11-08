@@ -19,12 +19,12 @@ const Navigation = () => {
 
   const navLinks = [
     { name: 'Home', href: '/' },
-    { name: 'Features', href: '/#features' },
-    { name: 'How It Works', href: '/#how-it-works' },
-    { name: 'Pricing', href: '/#pricing' },
+    { name: 'About', href: '/about' },
+    { name: 'Services', href: '/services' },
     { name: 'Our Work', href: '/our-work' },
+    { name: 'Pricing', href: '/#pricing' },
     { name: 'FAQ', href: '/#faq' },
-    { name: 'Contact', href: '/#contact' },
+    { name: 'Contact', href: '/contact' },
   ]
 
   const handleNavClick = (href: string) => {

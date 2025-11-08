@@ -9,8 +9,11 @@ import { initGA, trackPageView } from './lib/analytics'
 
 // Lazy load pages for better performance
 const Index = lazy(() => import('./pages/Index'))
+const AboutPage = lazy(() => import('./pages/AboutPage'))
+const ServicesPage = lazy(() => import('./pages/ServicesPage'))
 const OurWorkPage = lazy(() => import('./pages/OurWorkPage'))
 const BookDemoPage = lazy(() => import('./pages/BookDemoPage'))
+const ContactPage = lazy(() => import('./pages/ContactPage'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 
 const queryClient = new QueryClient()
@@ -43,8 +46,11 @@ const App = () => (
         <Suspense fallback={<div className="min-h-screen bg-background" />}>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/services" element={<ServicesPage />} />
             <Route path="/our-work" element={<OurWorkPage />} />
             <Route path="/book-demo" element={<BookDemoPage />} />
+            <Route path="/contact" element={<ContactPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
